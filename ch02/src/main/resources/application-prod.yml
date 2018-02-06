@@ -1,4 +1,6 @@
 ##家乡属性
+
+
 home:
      id: ${random.long}
      province: 广东
