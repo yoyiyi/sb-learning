@@ -1,0 +1,6 @@
+##家乡属性
+home:
+     id: ${random.long}
+     province: 浙江
+     city: 杭州
+     desc: ${home.city} IN ${home.province}
