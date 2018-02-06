@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <name>ch01</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Hello World</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
