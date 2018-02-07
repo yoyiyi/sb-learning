@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-
+<p th:text="${home.city}"></p>
+<ul>
+    <li th:each="v:${homeList}">
+        <span th:text="${v.city}"></span>
+    </li>
+</ul>
 </body>
 </html>
