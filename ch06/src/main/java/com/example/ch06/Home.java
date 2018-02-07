@@ -1,4 +1,4 @@
-package com.example.ch04.domain;
+package com.example.ch06;
 
 /**
  * 类名：Home
