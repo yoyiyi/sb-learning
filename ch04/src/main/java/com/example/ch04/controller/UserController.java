@@ -22,7 +22,7 @@ public class UserController {
     private IUserService userService;
 
     @GetMapping("/{name}")
-    public User fingByName(@PathVariable(name = "name", required = false) String name) {
+    public User findByName(@PathVariable(name = "name", required = false) String name) {
         return userService.findByName(name);
     }
 
