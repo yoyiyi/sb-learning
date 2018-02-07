@@ -13,6 +13,16 @@ public class User {
     private String name;
     private int age;
 
+    private Home home;
+
+    public Home getHome() {
+        return home;
+    }
+
+    public void setHome(Home home) {
+        this.home = home;
+    }
+
     public Long getId() {
         return id;
     }
