@@ -1,0 +1,4 @@
+##debug: truespring:
+  http:
+    encoding:
+      charset: UTF-8
