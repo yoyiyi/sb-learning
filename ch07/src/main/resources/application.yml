@@ -1,0 +1,11 @@
+#���ݿ�����
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 90755
+    url: jdbc:mysql://127.0.0.1/diancan?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+server:
+  context-path: /shell
