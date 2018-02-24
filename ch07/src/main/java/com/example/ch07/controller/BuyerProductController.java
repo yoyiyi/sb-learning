@@ -19,6 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * 类名：BuyerProductController
  * 描述：TODO
@@ -28,21 +32,27 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/buyer/product")
+@Slf4j
+@Api(tags = "买家接口")
 public class BuyerProductController {
     @Autowired
     private IProductInfoService productInfoService;
     @Autowired
     private IProductCategoryService productCategoryService;
 
+    @ApiOperation(value = "获取所有商品")
     @GetMapping("/list")
     public ResultVO list() {
         //查询所有上架商品
+        log.info("查询所有商家商品");
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
         //查询类目
+        log.info("查询类目");
         List<Integer> categoryTypeList = productInfoList.stream()
-                .map(e -> e.getCategoryType())
+                .map(ProductInfo::getCategoryType)
                 .collect(Collectors.toList());
         List<ProductCategory> productCategoryList = productCategoryService.findByCategoryTypeIn(categoryTypeList);
+        log.info("数据拼接");
         //数据拼接
         List<ProductVO> productVOList = new ArrayList<>();
         for (ProductCategory productCategory : productCategoryList) {
