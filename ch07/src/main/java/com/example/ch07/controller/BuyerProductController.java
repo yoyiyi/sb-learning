@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 类名：BuyerProductController
- * 描述：TODO
+ * 描述：买家接口Controller
  * 时间：2018/2/11 15:34
  *
  * @author <a href="2455676683@qq.com">zzq</a>
@@ -43,23 +43,19 @@ public class BuyerProductController {
     @ApiOperation(value = "获取所有商品")
     @GetMapping("/list")
     public ResultVO list() {
-        //查询所有上架商品
         log.info("查询所有商家商品");
         List<ProductInfo> productInfoList = productInfoService.findUpAll();
-        //查询类目
         log.info("查询类目");
         List<Integer> categoryTypeList = productInfoList.stream()
                 .map(ProductInfo::getCategoryType)
                 .collect(Collectors.toList());
         List<ProductCategory> productCategoryList = productCategoryService.findByCategoryTypeIn(categoryTypeList);
         log.info("数据拼接");
-        //数据拼接
         List<ProductVO> productVOList = new ArrayList<>();
         for (ProductCategory productCategory : productCategoryList) {
             ProductVO productVO = new ProductVO();
             productVO.setCategoryType(productCategory.getCategoryType());
             productVO.setCategoryName(productCategory.getCategoryName());
-
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
             for (ProductInfo productInfo : productInfoList) {
                 if (productInfo.getCategoryType().equals(productCategory.getCategoryType())) {
